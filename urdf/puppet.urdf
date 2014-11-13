@@ -1,0 +1,313 @@
+<?xml version="1.0"?>
+<robot name="puppet">
+
+    <!-- body display definition -->
+    <link name="torso">
+    <visual>
+      <geometry>
+        <mesh filename="package://trep_urdf/urdf/stl/torso.stl" 
+          scale="0.115 0.1121 0.1088" />
+      </geometry>
+      <material name="gray">
+         <color rgba=".788 .80 .80 1 "/>
+      </material>
+    </visual>
+    <inertial>
+        <origin xyz="0 0 -0.1" rpy="0 0 0"/>
+        <mass value="0.780"/>
+        <inertia ixx="0.005"  ixy="0"  ixz="0" iyy="0.005" iyz="0" izz="0.005" />
+    </inertial>
+    </link>
+
+    <!-- head -->
+    <joint name="head_connection" type="fixed">
+        <origin xyz="0 0.02 0.125" rpy="0 0 0" />
+        <parent link="torso" />
+        <child link="head" />
+    </joint>
+    <link name="head">
+        <visual>
+          <geometry>
+            <mesh filename="package://trep_urdf/urdf/stl/head.stl"
+              scale="0.09 0.09 0.09" />
+          </geometry>
+          <material name="gray" />
+        </visual>
+    </link>
+
+    <!-- left shoulder -->
+    <joint name="LShoulder" type="fixed" >
+        <origin xyz="0.15 0  0.043529411764705886" />
+        <parent link="torso" />
+        <child link="left_shoulder" />
+    </joint>
+    <link name="left_shoulder" />
+    <joint name="LShoulderPsi" type="continuous" >
+        <parent link="left_shoulder" />
+        <child link="left_shoulder_psi_link" />
+        <axis xyz="0 0 1" />
+        <dynamics damping="0.005" />
+    </joint>
+    <link name="left_shoulder_psi_link" />
+    <joint name="LShoulderTheta" type="continuous" >
+        <parent link="left_shoulder_psi_link"/>
+        <child link="left_shoulder_theta_link"/>
+        <axis xyz="0 1 0" />
+        <dynamics damping="0.005" />
+    </joint>
+    <link name="left_shoulder_theta_link" />
+    <joint name="LShoulderPhi" type="continuous" >
+        <parent link="left_shoulder_theta_link"/>
+        <child link="left_humerus"/>
+        <axis xyz="1 0 0" />
+        <dynamics damping="0.005" />
+    </joint>
+
+    <!-- left humerus -->
+    <link name="left_humerus">
+    <visual>
+      <geometry>
+          <mesh filename="package://trep_urdf/urdf/stl/lefthumerus.stl"
+          scale="0.105 0.105 0.105" />
+      </geometry>
+      <material name="gray" />
+    </visual>
+    <inertial>
+        <origin xyz="0 0 -0.1" rpy="0 0 0"/>
+        <mass value="0.0742"/>
+        <inertia ixx="0"  ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    </link>
+
+    <!-- left elbow -->
+    <joint name="LElbowPhi" type="continuous" >
+        <origin xyz="0.0 0.0 -0.2" />
+        <parent link="left_humerus" />
+        <child link="left_radius" />
+        <axis xyz="1 0 0" />
+        <dynamics damping="0.0005" />
+    </joint> 
+
+    <!-- left radius -->
+    <link name="left_radius">
+        <visual>
+          <geometry>
+            <mesh filename="package://trep_urdf/urdf/stl/leftradius.stl"
+                  scale="0.095 0.095 0.1" />
+          </geometry>
+          <material name="gray" />
+        </visual>
+        <inertial>
+            <origin xyz="0 0 -0.1" rpy="0 0 0"/>
+            <mass value="0.0578"/>
+            <inertia ixx="0"  ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+        </inertial>
+    </link>
+
+    <!-- left hand -->
+    <joint name="LHand" type="fixed" >
+        <origin xyz="0.0 0.0 -0.2" />
+        <parent link="left_radius" />
+        <child link="left_hand" />
+    </joint> 
+    <link name="left_hand" />
+
+    <!-- right shoulder -->
+    <joint name="RShoulder" type="fixed" >
+        <origin xyz="-0.15 0  0.043529411764705886" />
+        <parent link="torso" />
+        <child link="right_shoulder" />
+    </joint>
+    <link name="right_shoulder" />
+    <joint name="RShoulderPsi" type="continuous" >
+        <parent link="right_shoulder" />
+        <child link="right_shoulder_psi_link" />
+        <axis xyz="0 0 1" />
+        <dynamics damping="0.005" />
+    </joint>
+    <link name="right_shoulder_psi_link" />
+    <joint name="RShoulderTheta" type="continuous" >
+        <parent link="right_shoulder_psi_link"/>
+        <child link="right_shoulder_theta_link"/>
+        <axis xyz="0 1 0" />
+        <dynamics damping="0.005" />
+    </joint>
+    <link name="right_shoulder_theta_link" />
+    <joint name="RShoulderPhi" type="continuous" >
+        <parent link="right_shoulder_theta_link"/>
+        <child link="right_humerus"/>
+        <axis xyz="1 0 0" />
+        <dynamics damping="0.005" />
+    </joint>
+
+    <!-- right humerus -->
+    <link name="right_humerus">
+    <visual>
+      <geometry>
+          <mesh filename="package://trep_urdf/urdf/stl/righthumerus.stl"
+          scale="0.105 0.105 0.105" />
+      </geometry>
+      <material name="gray" />
+    </visual>
+    <inertial>
+        <origin xyz="0 0 -0.1" rpy="0 0 0"/>
+        <mass value="0.0742"/>
+        <inertia ixx="0"  ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+    </inertial>
+    </link>
+
+    <!-- right elbow -->
+    <joint name="RElbowPhi" type="continuous" >
+        <origin xyz="0.0 0.0 -0.2" />
+        <parent link="right_humerus" />
+        <child link="right_radius" />
+        <axis xyz="1 0 0" />
+        <dynamics damping="0.0005" />
+    </joint> 
+
+    <!-- right radius -->
+    <link name="right_radius">
+        <visual>
+          <geometry>
+            <mesh filename="package://trep_urdf/urdf/stl/rightradius.stl"
+                  scale="0.095 0.095 0.1" />
+          </geometry>
+          <material name="gray" />
+        </visual>
+        <inertial>
+            <origin xyz="0 0 -0.1" rpy="0 0 0"/>
+            <mass value="0.0578"/>
+            <inertia ixx="0"  ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+        </inertial>
+    </link>
+
+    <!-- right hand -->
+    <joint name="RHand" type="fixed" >
+        <origin xyz="0.0 0.0 -0.2" />
+        <parent link="right_radius" />
+        <child link="right_hand" />
+    </joint> 
+    <link name="right_hand" />
+
+    <!-- left hip -->
+<!--    <joint name="left_hip_psi" type="continuous" >-->
+<!--        <origin xyz="0.065 0 -0.32647" />-->
+<!--        <parent link="torso" />-->
+<!--        <child link="left_hip_psi_link" />-->
+<!--        <axis xyz="0 0 1" />-->
+<!--    </joint>-->
+<!--    <link name="left_hip_psi_link" />-->
+    <joint name="left_hip_theta" type="continuous" >
+        <origin xyz="0.065 0 -0.32647" />
+        <parent link="torso"/>
+        <child link="left_hip_theta_link"/>
+        <axis xyz="0 1 0" />
+        <dynamics damping="0.005" />
+    </joint>
+    <link name="left_hip_theta_link" />
+    <joint name="left_hip_phi" type="continuous" >
+        <parent link="left_hip_theta_link"/>
+        <child link="left_femur"/>
+        <axis xyz="1 0 0" />
+        <dynamics damping="0.005" />
+    </joint>
+    <link name="left_femur">
+        <visual>
+          <geometry>
+              <mesh filename="package://trep_urdf/urdf/stl/femur.stl"
+              scale="0.1167 0.1167 0.1167" />
+          </geometry>
+          <material name="gray" />
+        </visual>
+        <inertial>
+            <origin xyz="0 0 -0.15" rpy="0 0 0"/>
+            <mass value="0.1054"/>
+            <inertia ixx="0"  ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+        </inertial>
+    </link>
+
+    <!-- left knee -->
+    <joint name="left_knee_phi" type="continuous" >
+        <origin xyz="0.0 0.0 -0.35" />
+        <parent link="left_femur" />
+        <child link="left_tibia" />
+        <axis xyz="1 0 0" />
+        <dynamics damping="0.005" />
+    </joint>
+    <link name="left_tibia">
+        <visual>
+          <geometry>
+              <mesh filename="package://trep_urdf/urdf/stl/tibia.stl"
+              scale="0.1067 0.1067 0.1067" />
+          </geometry>
+          <material name="gray" />
+        </visual>
+        <inertial>
+            <origin xyz="0 0 -0.15" rpy="0 0 0"/>
+            <mass value="0.1585"/>
+            <inertia ixx="0"  ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+        </inertial>
+    </link>  
+
+    <!-- right hip -->
+<!--    <joint name="right_hip_psi" type="continuous" >-->
+<!--        <origin xyz="0.065 0 -0.32647" />-->
+<!--        <parent link="torso" />-->
+<!--        <child link="right_hip_psi_link" />-->
+<!--        <axis xyz="0 0 1" />-->
+<!--    </joint>-->
+<!--    <link name="right_hip_psi_link" />-->
+    <joint name="right_hip_theta" type="continuous" >
+        <origin xyz="-0.065 0 -0.32647" />
+        <parent link="torso"/>
+        <child link="right_hip_theta_link"/>
+        <axis xyz="0 1 0" />
+        <dynamics damping="0.005" />
+    </joint>
+    <link name="right_hip_theta_link" />
+    <joint name="right_hip_phi" type="continuous" >
+        <parent link="right_hip_theta_link"/>
+        <child link="right_femur"/>
+        <axis xyz="1 0 0" />
+        <dynamics damping="0.005" />
+    </joint>
+    <link name="right_femur">
+        <visual>
+          <geometry>
+              <mesh filename="package://trep_urdf/urdf/stl/femur.stl"
+              scale="0.1167 0.1167 0.1167" />
+          </geometry>
+          <material name="gray" />
+        </visual>
+        <inertial>
+            <origin xyz="0 0 -0.15" rpy="0 0 0"/>
+            <mass value="0.1054"/>
+            <inertia ixx="0"  ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+        </inertial>
+    </link>
+
+    <!-- left knee -->
+    <joint name="right_knee_phi" type="continuous" >
+        <origin xyz="0.0 0.0 -0.35" />
+        <parent link="right_femur" />
+        <child link="right_tibia" />
+        <axis xyz="1 0 0" />
+        <dynamics damping="0.005" />
+    </joint>
+    <link name="right_tibia">
+        <visual>
+          <geometry>
+              <mesh filename="package://trep_urdf/urdf/stl/tibia.stl"
+              scale="0.1067 0.1067 0.1067" />
+          </geometry>
+          <material name="gray" />
+        </visual>
+        <inertial>
+            <origin xyz="0 0 -0.15" rpy="0 0 0"/>
+            <mass value="0.1585"/>
+            <inertia ixx="0"  ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+        </inertial>
+    </link> 
+
+
+</robot>

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<robot name="string">
+
+    <link name="world" />
+    <joint name="string-tz" type="prismatic" kinematic="True">
+        <parent link="world" />
+        <child link="string-z" />
+        <axis xyz="0 0 1" />
+    </joint>
+    <link name="string-z" />
+    <joint name="string-tx" type="prismatic" kinematic="True">
+        <parent link="string-z" />
+        <child link="string-x" />
+        <axis xyz="1 0 0" />
+    </joint>
+    <link name="string-x" />
+    <joint name="string-ty" type="prismatic" kinematic="True">
+        <parent link="string-x" />
+        <child link="string-y" />
+        <axis xyz="0 1 0" />
+    </joint>
+    <link name="string-y" />
+    <joint name="string-rx" type="continuous">
+        <parent link="string-y" />
+        <child link="string-rxlink" />
+        <axis xyz="1 0 0" />
+        <dynamics damping="0.005" />
+    </joint>
+    <link name="string-rxlink" />
+    <joint name="string-ry" type="continuous">
+        <parent link="string-rxlink" />
+        <child link="string-rylink" />
+        <axis xyz="0 1 0" />
+        <dynamics damping="0.005" />
+    </joint>
+    <link name="string-rylink" />
+    <joint name="string-length" type="prismatic" kinematic="True">
+        <parent link="string-rylink" />
+        <child link="string" />
+        <axis xyz="0 0 1" />
+    </joint>
+    <link name="string" />
+
+</robot>

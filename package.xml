@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+  <name>trep_urdf</name>
+  <version>0.1.0</version>
+  <description>A package containing examples of trep systems in ROS.</description>
+
+  <maintainer email="adwilson10@gmail.com">Andy Wilson</maintainer>
+  <license>GPLv3</license>
+
+  <url type="website">http://nxr.northwestern.edu/trep</url> 
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>python_trep</run_depend>
+  <run_depend>visualization_msgs</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>interactive_markers</run_depend>
+
+  <export>
+
+  </export>
+</package>

@@ -1,4 +1,4 @@
-trep\_urdf
+trep\_urdf\_demo
 ==========
 
 This [ROS](http://www.ros.org/) package contains two demos that use [trep](http://nxr.northwestern.edu/trep)

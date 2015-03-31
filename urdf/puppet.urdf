@@ -5,7 +5,7 @@
     <link name="torso">
     <visual>
       <geometry>
-        <mesh filename="package://trep_urdf/urdf/stl/torso.stl" 
+        <mesh filename="package://trep_urdf_demo/urdf/stl/torso.stl" 
           scale="0.115 0.1121 0.1088" />
       </geometry>
       <material name="gray">
@@ -28,7 +28,7 @@
     <link name="head">
         <visual>
           <geometry>
-            <mesh filename="package://trep_urdf/urdf/stl/head.stl"
+            <mesh filename="package://trep_urdf_demo/urdf/stl/head.stl"
               scale="0.09 0.09 0.09" />
           </geometry>
           <material name="gray" />
@@ -67,7 +67,7 @@
     <link name="left_humerus">
     <visual>
       <geometry>
-          <mesh filename="package://trep_urdf/urdf/stl/lefthumerus.stl"
+          <mesh filename="package://trep_urdf_demo/urdf/stl/lefthumerus.stl"
           scale="0.105 0.105 0.105" />
       </geometry>
       <material name="gray" />
@@ -92,7 +92,7 @@
     <link name="left_radius">
         <visual>
           <geometry>
-            <mesh filename="package://trep_urdf/urdf/stl/leftradius.stl"
+            <mesh filename="package://trep_urdf_demo/urdf/stl/leftradius.stl"
                   scale="0.095 0.095 0.1" />
           </geometry>
           <material name="gray" />
@@ -144,7 +144,7 @@
     <link name="right_humerus">
     <visual>
       <geometry>
-          <mesh filename="package://trep_urdf/urdf/stl/righthumerus.stl"
+          <mesh filename="package://trep_urdf_demo/urdf/stl/righthumerus.stl"
           scale="0.105 0.105 0.105" />
       </geometry>
       <material name="gray" />
@@ -169,7 +169,7 @@
     <link name="right_radius">
         <visual>
           <geometry>
-            <mesh filename="package://trep_urdf/urdf/stl/rightradius.stl"
+            <mesh filename="package://trep_urdf_demo/urdf/stl/rightradius.stl"
                   scale="0.095 0.095 0.1" />
           </geometry>
           <material name="gray" />
@@ -214,7 +214,7 @@
     <link name="left_femur">
         <visual>
           <geometry>
-              <mesh filename="package://trep_urdf/urdf/stl/femur.stl"
+              <mesh filename="package://trep_urdf_demo/urdf/stl/femur.stl"
               scale="0.1167 0.1167 0.1167" />
           </geometry>
           <material name="gray" />
@@ -237,7 +237,7 @@
     <link name="left_tibia">
         <visual>
           <geometry>
-              <mesh filename="package://trep_urdf/urdf/stl/tibia.stl"
+              <mesh filename="package://trep_urdf_demo/urdf/stl/tibia.stl"
               scale="0.1067 0.1067 0.1067" />
           </geometry>
           <material name="gray" />
@@ -274,7 +274,7 @@
     <link name="right_femur">
         <visual>
           <geometry>
-              <mesh filename="package://trep_urdf/urdf/stl/femur.stl"
+              <mesh filename="package://trep_urdf_demo/urdf/stl/femur.stl"
               scale="0.1167 0.1167 0.1167" />
           </geometry>
           <material name="gray" />
@@ -297,7 +297,7 @@
     <link name="right_tibia">
         <visual>
           <geometry>
-              <mesh filename="package://trep_urdf/urdf/stl/tibia.stl"
+              <mesh filename="package://trep_urdf_demo/urdf/stl/tibia.stl"
               scale="0.1067 0.1067 0.1067" />
           </geometry>
           <material name="gray" />

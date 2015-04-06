@@ -29,8 +29,7 @@ class PuppetSimulator:
  
         # Add constraints from string ends to puppet
         for connection in self.connections.keys():
-            for axis in [(1,0,0),(0,1,0),(0,0,1)]:
-                trep.constraints.PointOnPlane(self.system, connection + '_string', axis, connection)
+            trep.constraints.PointToPoint3D(self.system, connection + '_string', connection)
 
         trep.potentials.Gravity(self.system, (0, 0, -9.8))
 
